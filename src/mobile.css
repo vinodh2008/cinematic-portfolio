@@ -1,0 +1,76 @@
+/* ────────────────────────────────────────────────
+   GLOBAL MOBILE RESPONSIVE OVERRIDES
+   Applies to all module CSS and inline styles.
+   Desktop layout is UNTOUCHED above 768px.
+──────────────────────────────────────────────── */
+
+/* ── TABLET (768px–1024px) ── */
+@media (max-width: 1024px) {
+  .scene-text h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: 4px;
+  }
+}
+
+/* ── MOBILE (max 768px) ── */
+@media (max-width: 768px) {
+
+  /* === CANVAS: always full-screen === */
+  canvas {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+
+  /* === Bug 2: HIDE sidebar on mobile === */
+  #sidebar {
+    display: none !important;
+  }
+
+  /* === Bug 5: TOP NAV mobile layout === */
+  nav {
+    top: 0 !important;
+    padding: 14px 16px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    background: rgba(0,0,5,0.7) !important;
+    backdrop-filter: blur(8px) !important;
+    gap: 8px !important;
+  }
+
+  /* === Bug 7: Progress dots — move closer to edge === */
+  #nav-dots {
+    right: 10px !important;
+    gap: 10px !important;
+  }
+
+  #nav-dots > div {
+    width: 5px !important;
+    height: 5px !important;
+  }
+
+  /* === Bug 6: Scene 4 overlay — handled via #scene-bg-overlay === */
+  #scene-bg-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 2s ease;
+    background: radial-gradient(
+      ellipse 80% 60% at 50% 60%,
+      rgba(0, 80, 80, 0.25) 0%,
+      rgba(0, 30, 40, 0.15) 50%,
+      transparent 100%
+    );
+  }
+}
+
+/* ── VERY SMALL (max 375px) ── */
+@media (max-width: 375px) {
+  nav {
+    padding: 10px 12px !important;
+  }
+}
